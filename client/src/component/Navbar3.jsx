@@ -138,7 +138,7 @@ const Navbar3 = () => {
             </h2>
           </div>
           <div className="md:hidden text-2xl pr-10 w-10 ">
-            <h2 onClick={menuList()}>
+            <h2 onClick={menuList}>
               <MdDensityMedium />
             </h2>
           </div>

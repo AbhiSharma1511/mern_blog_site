@@ -1,19 +1,23 @@
-import express from "express";
-import postRoutes from "./routes/posts.js";
-import authRoutes from "./routes/auth.js";
+import dotenv from "dotenv";
+import connectDB from "./db/dbc.js";
+import { app } from "./app.js";
 
-const app = express();
-const PORT = 8800;
 
-app.use(express.json());
-app.use("/api/posts", postRoutes);
-// app.use("/api/posts/",userRoutes);
-app.use("/api/auth", authRoutes);
-
-app.get("/", (req, res) => {
-  res.send("Hello from express");
+dotenv.config({
+  path: "./.env"
 });
 
-app.listen(PORT, () => {
-  console.log(`Server runs on port: ${PORT}`);
-});
+connectDB()
+.then(()=>{
+  app.on("error",(error)=>{
+    console.log("Error: ", error);
+    throw error;
+  })
+
+  app.listen(process.env.PORT || 8000, () => {
+    console.log(`Server runs on port: ${process.env.PORT }`);
+  });
+})
+.catch((err)=>{
+  console.log("Mongo db connection failed!!!", err);
+})
