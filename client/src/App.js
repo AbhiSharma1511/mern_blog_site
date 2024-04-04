@@ -21,6 +21,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { AuthContextProvider } from "./context/authContext";
+import Profile from "./component/Profile";
 
 const Layout = () => {
   return (
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
         path: "/post/",
         element: <Genre />,
       },
+      {
+        path: "/api/user/profile",
+        element: <Profile/>
+      }
     ],
   },
   {
