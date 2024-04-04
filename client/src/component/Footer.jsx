@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='mt-20'>
+    <div className='mt-8'>
       <div className='w-full h-20 bg-black text-white flex justify-between items-center md:px-20 flex-row'>
         <div><h2>© 2023 Material Tailwind</h2></div>
         <div className='w-6/12 flex justify-around items-center'>
