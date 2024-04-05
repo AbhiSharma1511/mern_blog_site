@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import {
   MdDensityMedium,
-  MdKeyboardArrowDown,
   MdKeyboardArrowRight,
 } from "react-icons/md";
 import { HiChevronDown } from "react-icons/hi";

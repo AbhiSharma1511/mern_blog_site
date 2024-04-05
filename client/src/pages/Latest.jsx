@@ -1,11 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const position=(id)=>{
-  if(id%2===0) return true;
-  else return false;
-};
-
 const post=[
   {
     id:1,
