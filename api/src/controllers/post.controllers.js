@@ -25,7 +25,7 @@ const createPost = asyncHandler(async (req, res) => {
     // }
 
     for (const image of req.files?.images) {
-      // console.log(image);
+      console.log(image);
       var imagePath = image?.path;
       var cloudinaryResponse = await uploadOnCloudinary(imagePath);
       cloudinaryUrls.push(cloudinaryResponse.url);
