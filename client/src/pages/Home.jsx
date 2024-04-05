@@ -45,15 +45,16 @@ import axios from "axios";
 //   "__v": 0
 // },
 
-
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(()=>{
-    const fetchData = async ()=>{
+  useEffect(() => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/blog_site/posts/getallpost`);
+        const response = await axios.get(
+          `http://localhost:8000/blog_site/posts/getallpost`
+        );
         // const response = await axios.get(`/blog_site/posts/getallpost`);  // does not work prperly, need to debug...
         console.log(response);
         setPosts(response.data);
@@ -63,7 +64,7 @@ const Home = () => {
       }
     };
     fetchData();
-  },[]);
+  }, []);
 
   // useEffect(()=>{
   //     setPosts(post);
@@ -80,30 +81,38 @@ const Home = () => {
         </div>
         {loading ? ( // Show progress bar if loading is true
           <div className="w-full h-2 bg-gray-200 rounded-md">
-            <div className="h-full bg-blue-500 rounded-md" style={{ width: "50%" }}></div>
+            <div
+              className="h-full bg-blue-500 rounded-md"
+              style={{ width: "50%" }}
+            ></div>
           </div>
-        ) : (posts.map((post) => (
-          <div key={post._id} className={`grid grid-cols-5 gap-24`}>
-            {/* <div key={post.id} className={`flex justify-center`}> */}
-            <div className="col-span-2">
-              <img
-                className="mx-h-[400px] rounded-lg shadow-blue-300 shadow-lg "
-                src={post.images[0]}
-                alt="Error in loading images!!"
-                style={{ width: "400px", height: "220px" }}
-              />
+        ) : (
+          posts.map((post) => (
+            <div key={post._id} className={`grid grid-cols-5 gap-24`}>
+              {/* <div key={post.id} className={`flex justify-center`}> */}
+              <div className="col-span-2">
+                <img
+                  className="mx-h-[400px] rounded-lg shadow-blue-300 shadow-lg "
+                  src={post.images[0]}
+                  alt="Error in loading images!!"
+                  style={{ width: "400px", height: "220px" }}
+                />
+                <div className="flex justify-center items-center mt-2 ">
+                  <h2 className="font-sans text-lg">Genre: {post.genre}</h2>
+                </div>
+              </div>
+              <div className="col-span-3">
+                <Link className="link" to={`/posts/post?_id=${post._id}`}>
+                  <h1 className="text-3xl font-semibold">{post.title}</h1>
+                  <p className="overflow-hidden h-20">{post.description}</p>
+                  <button className="border-sky-400 border-2 px-2 mt-5 rounded hover:bg-blue-400">
+                    Read More
+                  </button>
+                </Link>
+              </div>
             </div>
-            <div className="col-span-3">
-              <Link className="link" to={`/post/${post._id}`}>
-                <h1 className="text-3xl font-semibold">{post.title}</h1>
-                <p className="overflow-hidden h-20">{post.description}</p>
-                <button className="border-sky-400 border-2 px-2 mt-5 rounded hover:bg-blue-400">
-                  Read More
-                </button>
-              </Link>
-            </div>
-          </div>
-        )))}
+          ))
+        )}
       </div>
     </div>
   );

@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: "/posts",
         element: <Home />,
       },
       {
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         element: <Latest />,
       },
       {
-        path: "/post/:id",
+        path: "/posts/post",
         element: <Single />,
       },
       {
