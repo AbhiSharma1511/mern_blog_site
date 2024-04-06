@@ -14,6 +14,7 @@ const Write = () => {
     
 
 
+
 <div className='grid grid-cols-8 gap-20 mt-4 ml-72'>
       <div></div>
       <div className='col-span-4'>
@@ -33,9 +34,14 @@ const Write = () => {
               </span>
               <label htmlFor='file' className='font-bold '>Upload Image:</label>
               <input placeholder='Choose File' type='file' id='file' name=''/>
-              <div className='flex justify-between mt-2'>
-                  <button className='px-2 mr-1 text-black border-2 border-blue-500 rounded hover:bg-green-400'>Save as a draft</button>
-                  <button className='px-2 text-white bg-blue-500 border-2 border-blue-600 rounded hover:bg-green-400'>Update</button>
+              <div className='flex justify-between gap-2'>
+              
+<button className="p-1 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700">
+  Save as draft
+</button>
+<button className="p-1 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700">
+  Update
+</button>
               </div>
           </div>
           <div className='p-2 mt-5 border-2 border-slate-200'>

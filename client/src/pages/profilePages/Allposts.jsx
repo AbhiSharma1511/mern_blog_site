@@ -57,32 +57,33 @@ const post=[
   
 const Allposts = () => {
   return (
-    <div className='flex mt-9'>
+    <div className='flex flex-wrap mt-9'>
 
-<div className='fixed mt-4 -left-0 -right-0'>
+<div className='fixed mt-4 -left-0 -right-0 sm:w-auto'>
         <LeftProfile/>
       </div>
    
     
     
-
-   
-      <div className='grid grid-cols-6 p-4 ml-96'>
+      <div className='grid grid-cols-6 p-4 ml-[400px]  w-full'>
       
       <div className='flex flex-col col-span-4 mt-5 mb-5 gap-28'>
         <div className='flex justify-center '>
           <h1 className='font-sans text-3xl font-bold text-teal-600 underline '>All Articles</h1>
         </div>
         {post.map((post)=>(
-          <div key={post.id} className={`grid grid-cols-5 gap-24 `}>
+          <div key={post.id} className={`grid grid-cols-5 gap-40 sm:w-4/5`}>
           {/* <div key={post.id} className={`flex justify-center`}> */}
-            <div className='col-span-2'>
+            <div className='col-span-2 w-[250px]'>
               <img className='mx-h-[400px] rounded-lg shadow-blue-300 shadow-lg' src={post.img} alt=''/>
             </div>
             <div className='col-span-3'>
               <Link className='link' to={`/post/${post.id}`}>
                 <h1 className='text-3xl font-semibold'>{post.title}</h1>
-                <p>{post.desc}</p>
+                
+                 
+                <p>{post.desc.length>50 ? post.desc.substring(0,50)+ '...':post.desc}</p>
+                
                 <button className='px-2 mt-5 border-2 rounded border-sky-400 hover:bg-blue-400'>Read More</button>
               </Link>
             </div>
