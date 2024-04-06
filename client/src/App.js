@@ -17,6 +17,7 @@ import MyProfile from "./pages/profilePages/MyProfile";
 import EditProfile from "./pages/profilePages/EditProfile";
 import Createpost from "./pages/profilePages/Createpost";
 import Allposts from "./pages/profilePages/Allposts"
+import SavedPosts from "./pages/profilePages/SavedPosts";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -24,6 +25,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { AuthContextProvider } from "./context/authContext";
+import Logout from "./pages/profilePages/Logout";
 
 
 const Layout = () => {
@@ -84,6 +86,14 @@ const router = createBrowserRouter([
       {
         path: "/allPosts",
         element: <Allposts/>
+      },
+      {
+        path: "/savedposts",
+        element: <SavedPosts/>
+      },
+      {
+        path: "/logout",
+        element: <Logout/>
       }
     ],
   },
