@@ -68,7 +68,7 @@ const router = createBrowserRouter([
         element: <ContactUs />,
       },
       {
-        path: "/post/",
+        path: "/posts/genres",
         element: <Genre />,
       },
       {

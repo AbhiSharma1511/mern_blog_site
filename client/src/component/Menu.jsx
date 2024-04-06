@@ -69,7 +69,7 @@ const Menu = (props) => {
     <div>
       <div>
         <h1 className="text-3xl font-semibold mb-5">
-          Other {props.genre} posts you may like:
+          Other {props.genre.charAt(0).toUpperCase() + genre.slice(1)} posts you may like:
         </h1>
         {posts.map((post) => (
           <div className="mb-5 justify-center" key={post.id}>

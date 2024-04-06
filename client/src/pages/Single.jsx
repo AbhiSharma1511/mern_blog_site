@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import bin from "../component/images/bin.png";
+import saveIcon from "../component/images/saveIcon.png";
+import likeIcon from "../component/images/likeIcon.png";
 import edit from "../component/images/edit.png";
 import Menu from "../component/Menu";
 import { Link } from "react-router-dom";
@@ -94,14 +96,14 @@ const Single = () => {
               </p>
             </div>
             <div className="flex justify-center items-center h-full ml-40">
-              <h2 className="font-sans text-lg">Genre: {post.genre}</h2>
+            <h2 className="font-sans text-lg">Genre: {post.genre.charAt(0).toUpperCase() + post.genre.slice(1)} </h2>
             </div>
             <div className="flex absolute right-0">
               <Link to={"/write"}>
-                <img className="w-9 h-9 mr-2" src={edit} alt="" />
+                <img className="w-9 h-9 mr-2" src={likeIcon} alt="" />
               </Link>
               <Link to={"/"}>
-                <img className="w-8 h-8" src={bin} alt="" />
+                <img className="w-8 h-8" src={saveIcon} alt="" />
               </Link>
             </div>
           </div>
