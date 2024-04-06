@@ -64,8 +64,10 @@ const Allposts = () => {
       </div>
    
     
+    
 
-      <div className='grid w-5/6 grid-cols-6 p-4 ml-52'>
+   
+      <div className='grid grid-cols-6 p-4 ml-96'>
       
       <div className='flex flex-col col-span-4 mt-5 mb-5 gap-28'>
         <div className='flex justify-center '>
@@ -88,7 +90,8 @@ const Allposts = () => {
         ))}
       </div>
     </div>
-      </div>
+    </div>
+      
   )
 }
 

@@ -10,7 +10,7 @@ const LeftProfile = () => {
    <Link to='/editprofile' className='flex items-center justify-center h-10 text-cente w-28 hover:bg-sky-700'>
           Edit Profile
         </Link>
-    <Link to='/createpost' className='flex items-center justify-center h-10 text-cente w-28 hover:bg-sky-700'>
+    <Link to='/writepost' className='flex items-center justify-center h-10 text-cente w-28 hover:bg-sky-700'>
           Create Posts
         </Link>
         <Link to='/allposts'className='flex items-center justify-center h-10 text-cente w-28 hover:bg-sky-700'>

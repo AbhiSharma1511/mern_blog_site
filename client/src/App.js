@@ -15,9 +15,9 @@ import ContactUs from "./pages/profilePages/ContactUs";
 import Genre from "./pages/Genre";
 import MyProfile from "./pages/profilePages/MyProfile";
 import EditProfile from "./pages/profilePages/EditProfile";
-import Createpost from "./pages/profilePages/Createpost";
 import Allposts from "./pages/profilePages/Allposts"
 import SavedPosts from "./pages/profilePages/SavedPosts";
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -80,8 +80,8 @@ const router = createBrowserRouter([
         element: <EditProfile/>
       },
       {
-        path: "/createpost",
-        element: <Createpost/>
+        path: "/writepost",
+        element: <Write/>
       },
       {
         path: "/allPosts",
