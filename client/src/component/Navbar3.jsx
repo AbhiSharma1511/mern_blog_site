@@ -23,7 +23,7 @@ const navListMenuItems = [
   },
   {
     id: 4,
-    genre: "cineme",
+    genre: "cinema",
   },
   {
     id: 5,
@@ -32,6 +32,10 @@ const navListMenuItems = [
   {
     id: 6,
     genre: "food",
+  },
+  {
+    id: 7,
+    genre: "history",
   },
 ];
 
@@ -51,12 +55,12 @@ function SubNavbar() {
     }
   };
 
-  const renderItems = navListMenuItems.map(({ id, genre }) => (
+  const renderItems = navListMenuItems.map(({ id, genre}) => (
     // <a href={`/post/:${id}`} key={id}>
     <div className="flex" key={id}>
       <div className={`mb-1 font-serif grid w-full ${position(id) ? "" : ""}`}>
         <Link
-          to={`/post/${genre}`}
+          to={`/posts/genres?genre=${genre}`}
           className="flex items-center px-1 rounded hover:bg-slate-400"
         >
           <MdKeyboardArrowRight className="mr-1" />
