@@ -12,6 +12,7 @@ import {
   getGenrePost,
   getLatestPost,
   getMostLikedPost,
+  getSpecificPost,
 } from "../controllers/post.controllers.js";
 import upload from "../middleware/multer.middleware.js";
 
@@ -38,11 +39,13 @@ postRouter
 // fetch all the posts either user is loggedIn or not...
 postRouter.route("/getallpost").get(getAllPost);
 
-postRouter.route("/genre/:genre").get(getGenrePost);
+postRouter.route("/genres").get(getGenrePost);
 
 postRouter.route("/getmostliked").get(getMostLikedPost);
 
 postRouter.route("/getlatest").get(getLatestPost);
+
+postRouter.route("/post").get(getSpecificPost);
 
 postRouter
   .route("/admin/deletepost/:postid")

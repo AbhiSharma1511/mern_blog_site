@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import {
   MdDensityMedium,
-  MdKeyboardArrowDown,
   MdKeyboardArrowRight,
 } from "react-icons/md";
 import { HiChevronDown } from "react-icons/hi";
@@ -107,7 +106,7 @@ const Navbar3 = () => {
         <div className="w-4/12 hidden md:flex text-lg">
           <ul className="w-full flex justify-around items-center">
             <li>
-              <a href="/">Home</a>
+              <a href="/posts">Home</a>
             </li>
             <li>
               <a href="/latest">Latest</a>

@@ -4,10 +4,13 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: "http://localhost:8800/api/",
+      target: "http://localhost:8000",
       changeOrigin: true,
+      pathRewrite: {
+        "^/api": "", // Remove the "/api" prefix
+      },
     })
   );
 };
 
-// "proxy": "http://localhost:8800/api/"
+// // "proxy": "http://localhost:8000/api/"

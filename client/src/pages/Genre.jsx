@@ -15,6 +15,10 @@ const Genre = () => {
 
   const [posts, setPosts] = useState([]);
 
+  useEffect(()=>{
+    setPosts(post1)
+  },[])
+
   const genre = useLocation();
 
   console.log(genre);
@@ -23,7 +27,7 @@ const Genre = () => {
     const fetchData = async ()=>{
       try {
         const res = await axios.get(`/posts${genre}`);
-        if(res.data != 0)
+        if(res.data !== 0)
             setPosts(res.data);
         else 
             setPosts(res.post1)
