@@ -57,7 +57,7 @@ function SubNavbar() {
       <div className={`mb-1 font-serif grid w-full ${position(id) ? "" : ""}`}>
         <Link
           to={`/post/${genre}`}
-          className="hover:bg-slate-400 rounded px-1 flex items-center"
+          className="flex items-center px-1 rounded hover:bg-slate-400"
         >
           <MdKeyboardArrowRight className="mr-1" />
           {genre}
@@ -67,10 +67,10 @@ function SubNavbar() {
     // </a>
   ));
   return (
-    <React.Fragment>
-      <div open={isMenuOpen} handler={setIsMenuOpen} {...triggers}>
+    <React.Fragment className="">
+      <div open={isMenuOpen} handler={setIsMenuOpen} {...triggers} >
         <div className="">
-          <div className="flex justify-between items-center ">
+          <div className="flex items-center justify-between ">
             <h2 className="pr-1">Genre</h2>
             <HiChevronDown
               strokeWidth={2}
@@ -85,7 +85,7 @@ function SubNavbar() {
             isMenuOpen ? "lg:grid" : "hidden"
           }`}
         >
-          <ul className="col-span-4 flex flex-col mb-1">{renderItems}</ul>
+          <ul className="flex flex-col col-span-4 mb-1">{renderItems}</ul>
         </div>
       </div>
     </React.Fragment>
@@ -98,13 +98,13 @@ const Navbar3 = () => {
   const { currentUser } = useContext(AuthContext);
 
   return (
-    <div className="">
-      <div className="w-full h-auto bg-blue-300 flex justify-between items-center lg:px-20 p-1          rounded-b-xl md:px-15 pl-10">
-        <div className="text-blue-700 text-xl md:text-4xl py-2 font-serif font-semibold">
+    <div className="sticky -top-0">
+      <div className="flex items-center justify-between w-full h-auto p-1 pl-10 bg-blue-300 lg:px-20 rounded-b-xl md:px-15">
+        <div className="py-2 font-serif text-xl font-semibold text-blue-700 md:text-4xl">
           <Link to="/">Page Of Wonder</Link>
         </div>
-        <div className="w-4/12 hidden md:flex text-lg">
-          <ul className="w-full flex justify-around items-center">
+        <div className="hidden w-4/12 text-lg md:flex">
+          <ul className="flex items-center justify-around w-full">
             <li>
               <a href="/posts">Home</a>
             </li>
@@ -136,7 +136,7 @@ const Navbar3 = () => {
               {currentUser?.username}
             </h2>
           </div>
-          <div className="md:hidden text-2xl pr-10 w-10 ">
+          <div className="w-10 pr-10 text-2xl md:hidden ">
             <h2 onClick={menuList}>
               <MdDensityMedium />
             </h2>
