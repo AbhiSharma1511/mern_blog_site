@@ -13,7 +13,10 @@ import Single from "./pages/Single";
 import Write from "./pages/Write";
 import ContactUs from "./pages/profilePages/ContactUs";
 import Genre from "./pages/Genre";
-
+import MyProfile from "./pages/profilePages/MyProfile";
+import EditProfile from "./pages/profilePages/EditProfile";
+import Createpost from "./pages/profilePages/Createpost";
+import Allposts from "./pages/profilePages/Allposts"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -21,6 +24,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { AuthContextProvider } from "./context/authContext";
+
 
 const Layout = () => {
   return (
@@ -65,6 +69,22 @@ const router = createBrowserRouter([
         path: "/post/",
         element: <Genre />,
       },
+      {
+        path: "/profile",
+        element: <MyProfile/>
+      },
+      {
+        path: "/editprofile",
+        element: <EditProfile/>
+      },
+      {
+        path: "/createpost",
+        element: <Createpost/>
+      },
+      {
+        path: "/allPosts",
+        element: <Allposts/>
+      }
     ],
   },
   {
@@ -79,7 +99,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-slate-100">
       <AuthContextProvider>
         <RouterProvider router={router} />
       </AuthContextProvider>
