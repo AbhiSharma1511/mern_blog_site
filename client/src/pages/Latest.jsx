@@ -64,7 +64,7 @@ const Latest = () => {
   return (
     <div className="grid grid-cols-6 justify-center">
       <div></div>
-      <div className="col-span-4 mt-5 flex flex-col gap-28 mb-5">
+      <div className="col-span-4 mt-5 flex flex-col gap-10 mb-5">
         <div className="flex justify-center">
           <h1 className="text-3xl font-sans font-bold underline text-teal-600">
             Latest Articles
@@ -81,13 +81,20 @@ const Latest = () => {
                 style={{ width: "400px", height: "220px" }}
               />
               <div className="flex justify-center items-center mt-2 ">
-                <h2 className="font-sans text-lg">Genre: {post.genre}</h2>
+                <h2 className="font-sans text-lg">
+                  Genre:{" "}
+                  {post.genre.charAt(0).toUpperCase() + post.genre.slice(1)}
+                </h2>
               </div>
             </div>
             <div className="col-span-3">
               <Link className="link" to={`/posts/post?_id=${post._id}`}>
                 <h1 className="text-3xl font-semibold">{post.title}</h1>
-                <p className="overflow-hidden h-20">{post.description}</p>
+                <p>
+                  {post.description.length > 50
+                    ? post.description.substring(0, 200) + "..."
+                    : post.description}
+                </p>
                 <button className="border-sky-400 border-2 px-2 mt-5 rounded hover:bg-blue-400">
                   Read More
                 </button>

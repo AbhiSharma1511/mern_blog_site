@@ -1,15 +1,16 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
+import CircularProgress from "@mui/material/CircularProgress";
+ // Import the CircularProgress component
 
 const Login = () => {
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
-
+  const [isLoading, setIsLoading] = useState(false); // State to track loading state
   const navigate = useNavigate();
-
   const { login } = useContext(AuthContext);
 
   const handleChange = (e) => {
@@ -18,40 +19,18 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Set loading state to true during login
     try {
       await login(inputs);
       navigate("/posts");
     } catch (err) {
       console.log(err);
+    } finally {
+      setIsLoading(false); // Set loading state to false after login attempt
     }
   };
-  // console.log(inputs)
-  // const [inputs, setInputs] = useState({
-  //   username: "",
-  //   password: "",
-  // });
-  // const [err, setError] = useState(null);
 
-  // const navigate = useNavigate();
-
-  // const { login } = useContext(AuthContext);
-
-
-  // const handleChange = (e) => {
-  //   setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await login(inputs)
-  //     navigate("/");
-  //   } catch (err) {
-  //     setError(err.response.data);
-  //   }
-  // };
   return (
-    
     <div className="grid grid-cols-1 md:grid-cols-2 h-screen w-full">
       <div className="hidden sm:block">
         <img
@@ -100,12 +79,18 @@ const Login = () => {
             </p>
             <p className="px-4">Forgot Password</p>
           </div>
-          <button
-            className="w-full my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg"
-            onClick={handleSubmit}
-          >
-            Sign In
-          </button>
+          {isLoading ? ( // Show CircularProgress if loading
+            <div className="flex justify-center">
+              <CircularProgress />
+            </div>
+          ) : (
+            <button
+              className="w-full my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg"
+              onClick={handleSubmit}
+            >
+              Sign In
+            </button>
+          )}
           <div className="flex justify-center">
             <a href="/auth/register" className="text-stone-400">
               Don't have accout? <i className="text-sky-400">Sign Up</i>
@@ -118,25 +103,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
-
-
-
-// <div className='bg-blue-400 grid place-content-center h-screen'>
-    //   <div className='border-2 border-black rounded-md  h-56 bg-white grid'>
-    //     <div className='text-2xl font-semibold p-3 m-2'>Login</div>
-    //     <div className='bg-zinc-400 grid'>
-    //       <label typeof='email' className='text-xl'>Email: </label>
-    //       <input name='email'  placeholder='Email' className=''/>
-    //     </div>
-    //     <div className='border-black border-1 grid'>
-    //       <label typeof='text'>Password: </label>
-    //       <input name='password' placeholder='Password' className=''/>
-    //     </div>
-    //     <div className='grid'>
-    //       <button className='border-2 border-black bg-green-600 w-12'>Login</button>
-    //       <a href='/register'>Don't have account? SignUp</a>
-    //     </div>
-    //   </div>
-    // </div>

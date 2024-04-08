@@ -22,7 +22,7 @@ function Profile() {
     {
       label: "My Profile",
       icon: UserCircleIcon,
-      link: `/user/${currentUser.data.user.username}/profile`
+      link: `/user/${currentUser?.data?.user?.username}/profile`
     },
     {
       label: "Edit Profile",
@@ -42,7 +42,7 @@ function Profile() {
     {
       label: "Sign Out",
       icon: PowerIcon,
-      link: "/login",
+      link: "/posts",
     },
   ];
 

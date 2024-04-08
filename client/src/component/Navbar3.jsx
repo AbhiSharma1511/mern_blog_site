@@ -143,7 +143,12 @@ const Navbar3 = () => {
             </h2>
           </div>
           <div>
-            <Profile />
+            {currentUser ? (
+              <Profile />
+            ) : (
+              <div className="hidden">
+              </div>
+            )}
           </div>
         </div>
       </div>
