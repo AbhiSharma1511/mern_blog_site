@@ -1,30 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-// const post = [
-//   {
-//     id: 1,
-//     genre: "Science",
-//     title: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis repellendus enim nisi asperiores hic maxime cum, quidem rerum doloribus consectetur vero animi? Accusamus nostrum perferendis, nesciunt deleniti doloremque aspernatur!",
-//     images: "https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?cs=srgb&dl=pexels-pixabay-262508.jpg&fm=jpg",
-//   },
-//   {
-//     id: 2,
-//     genre: "Technology",
-//     title: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis repellendus enim nisi asperiores hic maxime cum, quidem rerum doloribus consectetur vero animi? Accusamus nostrum perferendis, nesciunt deleniti doloremque aspernatur!",
-//     images: "https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?cs=srgb&dl=pexels-pixabay-262508.jpg&fm=jpg",
-//   },
-//   {
-//     id: 3,
-//     genre: "Art",
-//     title: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-//     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perspiciatis repellendus enim nisi asperiores hic maxime cum, quidem rerum doloribus consectetur vero animi? Accusamus nostrum perferendis, nesciunt deleniti doloremque aspernatur!",
-//     images: "https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?cs=srgb&dl=pexels-pixabay-262508.jpg&fm=jpg",
-//   }
-// ];
+import { AuthContext } from "../context/authContext.js";
 
 /************ Data sample loaded from server... */
 // {
@@ -49,6 +26,8 @@ const Home = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const currentUser = useContext(AuthContext)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -57,6 +36,7 @@ const Home = () => {
         );
         // const response = await axios.get(`/blog_site/posts/getallpost`);  // does not work prperly, need to debug...
         console.log(response);
+        console.log("At Home page current user is: ",currentUser);
         setPosts(response.data);
         setLoading(false);
       } catch (error) {
@@ -64,7 +44,7 @@ const Home = () => {
       }
     };
     fetchData();
-  }, []);
+  },[currentUser]);
 
   // useEffect(()=>{
   //     setPosts(post);

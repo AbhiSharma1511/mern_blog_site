@@ -6,7 +6,7 @@ const Register = () => {
   
   const [inputs, setInputs] = useState({
     email:"",
-    username:"",
+    fullName:"",
     password:""
   })
 
@@ -19,9 +19,9 @@ const Register = () => {
   const handleSubmit = async e=>{
     e.preventDefault();
     try {
-      const res = await axios.post("/auth/register",inputs)
+      const res = await axios.post("http://localhost:8000/blog_site/auth/register",inputs)
       console.log(res);
-      navigate("/login");
+      navigate("/auth/login");
     } catch (err) {
       console.log(err);
     }
@@ -42,9 +42,14 @@ const Register = () => {
            <input required type='email' name='email'  placeholder='Email' className='rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800  foucs:outline-none' onChange={handleChange} />
           </div>
           {/* ************ Username ******************* */}
-          <div className='flex flex-col text-gray-400 pu-2'>
+          {/* <div className='flex flex-col text-gray-400 pu-2'>
           <label typeof='text' className='text-xl'>Username: </label>
            <input required type='text' name='username'  placeholder='Username' className='p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800  foucs:outline-none' onChange={handleChange}/>
+          </div> */}
+          {/* ************ fullName ******************* */}
+          <div className='flex flex-col text-gray-400 pu-2'>
+          <label typeof='text' className='text-xl'>FullName: </label>
+           <input required type='text' name='fullName'  placeholder='Fullname' className='p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800  foucs:outline-none' onChange={handleChange}/>
           </div>
           {/* ************ Password ******************* */}
           <div className='flex flex-col text-gray-400 pu-2'>
@@ -57,7 +62,7 @@ const Register = () => {
           </div>
           <button className='w-full my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg' onClick={handleSubmit}>Sign Up</button>
           <div className='flex justify-center'>
-            <a href='/login' className='text-stone-400'>Already have accout? <i className='text-sky-400'>Login</i></a>
+            <a href='/auth/login' className='text-stone-400'>Already have accout? <i className='text-sky-400'>Login</i></a>
           </div>
         </form>
       </div>

@@ -4,7 +4,7 @@ import { AuthContext } from "../context/authContext";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(inputs);
-      navigate("/");
+      navigate("/posts");
     } catch (err) {
       console.log(err);
     }
@@ -69,17 +69,18 @@ const Login = () => {
             Sign In
           </h2>
           <div className="flex flex-col text-gray-400 pu-2">
-            <label typeof="text" className="text-xl">
-              Username:{" "}
+            <label typeof="email" className="text-xl">
+              Email:{" "}
             </label>
             <input
               className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800  foucs:outline-none"
-              type="text"
-              name="username"
-              placeholder="Username"
+              type="email"
+              name="email"
+              placeholder="Email"
               onChange={handleChange}
             />
           </div>
+          {/* ************ Password ******************* */}
           <div className="flex flex-col text-gray-400 pu-2">
             <label typeof="password" className="text-xl">
               Password:{" "}
@@ -106,7 +107,7 @@ const Login = () => {
             Sign In
           </button>
           <div className="flex justify-center">
-            <a href="/register" className="text-stone-400">
+            <a href="/auth/register" className="text-stone-400">
               Don't have accout? <i className="text-sky-400">Sign Up</i>
             </a>
           </div>

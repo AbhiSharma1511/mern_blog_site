@@ -1,8 +1,5 @@
 import React, { useContext } from "react";
-import {
-  MdDensityMedium,
-  MdKeyboardArrowRight,
-} from "react-icons/md";
+import { MdDensityMedium, MdKeyboardArrowRight } from "react-icons/md";
 import { HiChevronDown } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
@@ -55,7 +52,7 @@ function SubNavbar() {
     }
   };
 
-  const renderItems = navListMenuItems.map(({ id, genre}) => (
+  const renderItems = navListMenuItems.map(({ id, genre }) => (
     // <a href={`/post/:${id}`} key={id}>
     <div className="flex" key={id}>
       <div className={`mb-1 font-serif grid w-full ${position(id) ? "" : ""}`}>
@@ -71,8 +68,8 @@ function SubNavbar() {
     // </a>
   ));
   return (
-    <React.Fragment className="">
-      <div open={isMenuOpen} handler={setIsMenuOpen} {...triggers} >
+    <React.Fragment>
+      <div {...triggers}>
         <div className="">
           <div className="flex items-center justify-between ">
             <h2 className="pr-1">Genre</h2>
@@ -113,7 +110,7 @@ const Navbar3 = () => {
               <a href="/posts">Home</a>
             </li>
             <li>
-              <a href="/latest">Latest</a>
+              <a href="/posts/latest">Latest</a>
             </li>
             {/* <li><a href='/genre' className='flex items-center'>Genres<MdKeyboardArrowDown/></a></li> */}
             <li className="flex items-center">{SubNavbar()}</li>
@@ -125,7 +122,7 @@ const Navbar3 = () => {
         <div className="flex items-center">
           <div className="flex items-center">
             <Link
-              to={"/login"}
+              to={"/auth/login"}
               className={`border rounded-2xl bg-blue-600 px-3 py-1 mr-2 ${
                 currentUser ? "hidden" : "flex"
               }`}
@@ -137,7 +134,7 @@ const Navbar3 = () => {
                 currentUser ? "flex" : "hidden"
               }`}
             >
-              {currentUser?.username}
+              {currentUser?.data?.user?.fullName}
             </h2>
           </div>
           <div className="w-10 pr-10 text-2xl md:hidden ">

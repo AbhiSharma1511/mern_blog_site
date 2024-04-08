@@ -1,7 +1,5 @@
 import "./App.css";
 import Footer from "./component/Footer";
-// import Navbar from './component/Navbar';
-// import Navbar2 from './component/Navbar2';
 import Navbar3 from "./component/Navbar3";
 
 import Login from "./pages/Login";
@@ -52,7 +50,7 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/latest",
+        path: "/posts/latest",
         element: <Latest />,
       },
       {
@@ -72,37 +70,37 @@ const router = createBrowserRouter([
         element: <Genre />,
       },
       {
-        path: "/profile",
+        path: "/user/:username/profile",
         element: <MyProfile/>
       },
       {
-        path: "/editprofile",
+        path: "/user/:username/editprofile",
         element: <EditProfile/>
       },
       {
-        path: "/writepost",
+        path: "/user/:username/createpost",
         element: <Write/>
       },
       {
-        path: "/allPosts",
+        path: "/user/:username/allposts",
         element: <Allposts/>
       },
       {
-        path: "/savedposts",
+        path: "/user/:username/savedposts",
         element: <SavedPosts/>
       },
       {
-        path: "/logout",
+        path: "/user/:username/logout",
         element: <Logout/>
       }
     ],
   },
   {
-    path: "/login",
+    path: "/auth/login",
     element: <Login />,
   },
   {
-    path: "/register",
+    path: "/auth/register",
     element: <Register />,
   },
 ]);

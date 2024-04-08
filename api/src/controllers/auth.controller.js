@@ -30,9 +30,32 @@ const generateAccessAndRefreshToken = async (userId) => {
   }
 };
 
+const generateUniqueUsername = async (email) => {
+  const username = email.split("@")[0];
+  let uniqueUsername = "";
+  let unique = true;
+
+  do {
+    const randomString = Math.random().toString(36).substring(2, 6);
+    uniqueUsername = `${username}_${randomString}`;
+    unique = await User.findOne({ username: uniqueUsername });
+  } while (unique);
+
+  if(uniqueUsername === ""){
+    console.log('Username is null');
+  }
+
+  return uniqueUsername;
+};
+
 const registerUser = asyncHandler(async (req, res) => {
-  const { fullName, username, email, password, role } = req.body;
+  const { fullName, email, password, role } = req.body;
   console.log("Body: ", req.body);
+
+  const username = await generateUniqueUsername(email);
+  console.log(username);
+
+  // checking the field for empty values
 
   if (
     [username, fullName, email, password].some((field) => field?.trim() === "")
@@ -47,8 +70,6 @@ const registerUser = asyncHandler(async (req, res) => {
     if (existingUser) {
       throw new ApiResponse(409, existingUser, "User alerady existed!");
     }
-
-    // checking the field for empty values
 
     let newUser;
     if (role === "admin") {
