@@ -31,8 +31,8 @@ Inputbox.current.click()
  <p className='text-xl'>{currentUser? currentUser.data.user.username : "username"}</p>
   </div>
   <div className='flex flex-col items-center justify-center gap-4 '>
-    <p className='text-3xl'>{currentUser? currentUser.data.user.fullName : "User Full Name"}</p>
-    <p className='text-2xl'>{currentUser? currentUser.data.user.email : "USer email"}</p>
+    <p className='text-3xl font-semibold font-sans'>{currentUser? currentUser.data.user.fullName : "User Full Name"}</p>
+    <p className='text-2xl'>{currentUser? currentUser.data.user.email : "User email"}</p>
   </div>
    </div>
      </div>

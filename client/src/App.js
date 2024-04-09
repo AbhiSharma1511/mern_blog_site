@@ -62,7 +62,7 @@ const router = createBrowserRouter([
         element: <Write />,
       },
       {
-        path: "/contact",
+        path: "/user/:username/contact",
         element: <ContactUs />,
       },
       {

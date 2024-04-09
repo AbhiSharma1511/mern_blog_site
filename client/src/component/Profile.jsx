@@ -27,7 +27,7 @@ function Profile() {
     {
       label: "Edit Profile",
       icon: Cog6ToothIcon,
-      link: "/editprofile",
+      link: `/user/${currentUser?.data?.user?.username}/editprofile`
     },
     {
       label: "Inbox",
@@ -37,7 +37,7 @@ function Profile() {
     {
       label: "Help",
       icon: LifebuoyIcon,
-      link: "/contact",
+      link: `/user/${currentUser?.data?.user?.username}/contact`,
     },
     {
       label: "Sign Out",
